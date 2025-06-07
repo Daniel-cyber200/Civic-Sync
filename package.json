@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@firebase/auth": "^1.10.2",
+    "firebase": "^11.7.1"
+  }
+}
