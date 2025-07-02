@@ -24,4 +24,4 @@ const auth = getAuth(app);  // ✅ fixed line
 // Export for use in other files
 export { db, storage, auth };
 
-console.log("Firebase initialized. DB:", db, "Storage:", storage, "Auth:", auth);
+console.log("✅ Firebase initialized. DB:", db, "Storage:", storage, "Auth:", auth);
