@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - CivicSync</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="sign.css">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Branding Header -->
+        <header class="auth-header">
+            <div class="logo">
+                <i class="fas fa-bullhorn"></i>
+                <h1><span class="civic">Civic</span>Sync</h1>
+            </div>
+            <p class="tagline">Empowering community engagement</p>
+        </header>
+
+        <!-- Auth Card -->
+        <div class="auth-card">
+            <h2><i class="fas fa-sign-in-alt"></i> Sign In</h2>
+            
+            <form id="signinForm" novalidate>
+                <!-- Added Name Field -->
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="text" id="name" required autocomplete="name" placeholder=" ">
+                        <label for="name">Full Name</label>
+                        <i class="fas fa-user input-icon"></i>
+                    </div>
+                    <div class="underline"></div>
+                    <div class="error-message" id="name-error"></div>
+                </div>
+                
+                <!-- Existing Email Field -->
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="email" id="email" required autocomplete="email" placeholder=" ">
+                        <label for="email">Email Address</label>
+                        <i class="fas fa-envelope input-icon"></i>
+                    </div>
+                    <div class="underline"></div>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+                
+                <!-- Password Field -->
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="password" id="password" required autocomplete="current-password" placeholder=" ">
+                        <label for="password">Password</label>
+                        <i class="fas fa-lock input-icon"></i>
+                        <button type="button" class="toggle-password" aria-label="Show password">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="underline"></div>
+                    <div class="error-message" id="password-error"></div>
+                </div>
+                
+                <!-- Auth Options -->
+                <div class="auth-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="forgot-password.html" class="forgot-password">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="auth-submit-btn">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                
+                <!-- Social Login -->
+                <div class="social-login">
+                    <p class="divider"><span>or continue with</span></p>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            <p class="switch-form-text">
+                Don't have an account? 
+                <a href="signup.html" class="switch-link">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="sign.js"></script>
+</body>
+</html>
