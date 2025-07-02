@@ -1,20 +1,19 @@
-import { storage } from "./firebaseConfig.js";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import fs from "fs";
+import { initializeApp } from "firebase/app";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { firebaseConfig } from "./firebaseConfig.js"; // or paste config here directly
+
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
 
 async function uploadPhoto(filePath, destinationPath) {
   try {
-    // Read the file from disk 
     const fileBuffer = fs.readFileSync(filePath);
-
-    // Create a reference to the Storage destination
     const storageRef = ref(storage, destinationPath);
 
-    // Upload the file
     await uploadBytes(storageRef, fileBuffer);
     console.log("✅ Photo uploaded!");
 
-    // Get the public URL
     const url = await getDownloadURL(storageRef);
     console.log("📸 Download URL:", url);
     return url;
@@ -23,5 +22,4 @@ async function uploadPhoto(filePath, destinationPath) {
   }
 }
 
-// Example Usage (replace paths .jpg with loaction of image)
-uploadPhoto("./test.jpg", "uploads./test.jpg");
+uploadPhoto("./test.jpg", "uploads/test.jpg");
