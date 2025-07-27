@@ -55,11 +55,11 @@ function initMap() {
 // Custom marker icons
 
 function getMarkerIcon(status) {
-//   const icons = {
-//     'pending': 'fa-triangle-exclamation',    // Warning icon for pending
-//     'in-progress': 'fa-person-digging',     // Construction icon
-//     'resolved': 'fa-circle-check'           // Checkmark icon
-//   };
+  const icons = {
+    'pending': 'fa-triangle-exclamation',    // ⚠
+    'in-progress': 'fa-person-digging',      // ⛏
+    'resolved': 'fa-circle-check'            // ✅
+  };
 
   const colors = {
     'pending': '#8B4513',     // Clay Brown
@@ -67,14 +67,17 @@ function getMarkerIcon(status) {
     'resolved': '#9BC53D'     // Olive Green
   };
 
-    return L.divIcon({
-        className: `custom-marker ${status}`,  // Backticks for template literal
-        html: `<svg viewBox="0 0 32 32" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-            <path fill="${colors[status] || '#006400'}" d="M16 0c-8.837 0-16 7.163-16 16s16 32 16 32 16-23.163 16-32-7.163-16-16-16z"/>
-        </svg>`,  // Complete SVG path
-        iconSize: [32, 32],     // Colon
-        iconAnchor: [16, 32]     // Colon
-    });
+  return L.divIcon({
+    className: custom-marker ${status},
+    html: `
+      <div class="marker-container" style="color: ${colors[status]}">
+        <i class="fa-solid ${icons[status]}"></i>
+      </div>
+    `,
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -16]
+  });
 }
 
 // Initialize map when page loads
